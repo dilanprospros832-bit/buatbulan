@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buat Bulan Cantik ❤️</title>
+  <script type="text/javascript"
+    src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ZhHCjZ22QQ-INsVViPZN7ouuMGMGylWv-CVWsihVGjvOR-Qp_j3Z1Gpg4mcSDYJMDBAC2EDcZ14pHp-vS9lZR_8OQfnkpO1uyosSWOxeVTfBy4AiL_1KLD1AEilonvim5OgYKkBUGQbn_V30FP-CVLHoCuD90AvNVjjJ0ZQ-dmqd9eQhy-GoBY_44enwYxBe6RwtuczOcC5qAl8EEPhQq91BHM-ns2BaXMY8vHHjzenQmZ4pNI_cGJw8sjVwSNRdww_LDTeJzt4NlMTIRYr6OHr85Tp-gG7Darv4DnxSGrbXqg04qpzz_8o2NozzPULmhYcDQrh5J6Ckeyg4N11jpQ"
+    charset="UTF-8"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #ffe4ec, #fff8fb);
+      color: #4a2633;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 0;
+      position: relative;
+    }
+
+    .hero-box {
+      background: rgba(255, 255, 255, .78);
+      backdrop-filter: blur(12px);
+      border-radius: 30px;
+      padding: 45px 25px;
+      box-shadow: 0 15px 45px rgba(130, 50, 80, .15);
+      max-width: 800px;
+      width: 100%;
+      animation: muncul 1s ease;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 80px);
+      color: #d94f7d;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .heart {
+      font-size: 55px;
+      animation: detak 1.2s infinite;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: #d94f7d;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(217, 79, 125, .25);
+      transition: .25s;
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.03);
+      background: #c93f6e;
+    }
+
+    /* SECTION */
+    section {
+      padding: 70px 0;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 34px;
+      color: #c63e6e;
+      margin-bottom: 35px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, .85);
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 12px 35px rgba(100, 40, 65, .12);
+      margin-bottom: 25px;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 18px;
+      line-height: 2;
+    }
+
+    /* GALERI */
+    .galeri {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .foto {
+      background: white;
+      padding: 8px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(100, 40, 65, .15);
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .foto:hover {
+      transform: translateY(-8px) rotate(1deg);
+    }
+
+    .foto img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      display: block;
+      border-radius: 15px;
+    }
+
+    /* MUSIC */
+    .music-box {
+      text-align: center;
+    }
+
+    .music-status {
+      margin: 15px 0 20px;
+      font-weight: bold;
+      color: #b83a64;
+    }
+
+    audio {
+      width: min(600px, 100%);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 35px 15px;
+      background: rgba(255, 255, 255, .7);
+      margin-top: 30px;
+    }
+
+    /* HEART FALLING */
+    .heart-fall {
+      position: fixed;
+      top: -30px;
+      pointer-events: none;
+      animation: jatuh linear forwards;
+      z-index: 9999;
+    }
+
+    @keyframes jatuh {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes detak {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes muncul {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .galeri {
+        grid-template-columns: 1fr;
+      }
+
+      .foto img {
+        height: auto;
+        max-height: 500px;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PEMBUKA -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <div class="heart">❤️</div>
+        <h1>Buat Bulan Cantik ❤️</h1>
+        <p>
+          Pesan Buat Bulan
+          <br>
+          Sakne Dilarani terus
+        </p>
+
+        <button onclick="pesan()">Klik Aku 💌</button>
+        <br><br>
+        <button onclick="toggleMusic()" id="musicButton">▶ Putar Musik</button>
+
+        <p class="music-status" id="musicStatus">Musik belum diputar 🎵</p>
+
+        <!--
+          PENTING:
+          Simpan file musik di folder yang sama dengan HTML.
+          Nama file yang dipakai di bawah:
+          ssstik.io_1789892781438.mp3
+        -->
+        <audio id="musik" loop preload="auto">
+          <source src="mencari alasan.mp3" type="audio/mpeg">
+          Browser kamu tidak mendukung audio.
+        </audio>
+      </div>
+    </div>
+  </header>
+
+  <!-- PESAN -->
+  <section>
+    <div class="container">
+      <h2 class="title">💌 Pesan Untuk Orang Cantik</h2>
+
+      <div class="card message">
+        <p>
+          Bulan ❤️
+          <br><br>
+          Semangat Cantik
+          <br><br>
+          Dadi Wong Wedok Kui Kudu Nduwe Harga Diri, Ojo Ngoyak Wong Lanang Nek Koe Wes Ora Digoleki,
+          Orasah Ngemis Gurmergo Koe Iseh sayang,
+          Ojo Ngasih Lali Kodrate Wong Wedok, Nek Koe Wes Ora Dianggep Yowes Orausah Berharap,
+          Eleng Wong Lanang Yen Awamu Tujuane Bakal Di Usahakne Lek Ora Tujuane Arepo Lehmu
+          Ngoyak Adohe Ko Ngopo Ora Mungkin Didadekne Pilihane, Wong Seorang Koe Kok Didadekne Pilihane
+          Serem Sih Seng Semangat Seh Ono Wong Lanang Seng Gelem Nrimo Koe Sayang Koe
+          <br><br>
+          semanggat bulan cantik❤️.
+          <br><br>
+          ❤️ Hidup Lebih Lama Ya ❤️
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section>
+    <div class="container">
+      <h2 class="title">📸 Foto Orang Cantik</h2>
+
+      <div class="galeri">
+
+        <div class="foto">
+          <img src="bulan.jpeg" alt="Kenangan 1">
+        </div>
+
+        <div class="foto">
+          <img src="bulan (2).jpeg" alt="Kenangan 2">
+        </div>
+
+        <div class="foto">
+          <img src="bulan (3).jpeg" alt="Kenangan 3">
+        </div>
+
+        <div class="foto">
+          <img src="bulan (4).jpeg" alt="Kenangan 4">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIK -->
+  <section>
+    <div class="container">
+      <h2 class="title">🎵 Musik</h2>
+
+      <div class="card music-box">
+        <p style="margin-bottom:20px;">
+          Putar musik sambil melihat foto-foto orang cantik❤️
+        </p>
+
+        <button onclick="toggleMusic()" id="musicButton2">
+          ▶ Putar Musik
+        </button>
+
+        <br><br>
+
+        <audio id="musik2" controls loop>
+          <source src="mencari alasan.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Dibuat khusus untuk Bulan ❤️
+    <br>
+    <small>Dengan penuh rasa sayang.</small>
+  </footer>
+
+  <script>
+    const musik = document.getElementById("musik");
+    const musik2 = document.getElementById("musik2");
+    const musicButton = document.getElementById("musicButton");
+    const musicButton2 = document.getElementById("musicButton2");
+    const musicStatus = document.getElementById("musicStatus");
+
+    function updateMusicUI(isPlaying) {
+      if (isPlaying) {
+        musicButton.innerHTML = "⏸ Pause Musik";
+        musicButton2.innerHTML = "⏸ Pause Musik";
+        musicStatus.innerHTML = "Musik sedang diputar 🎵❤️";
+      } else {
+        musicButton.innerHTML = "▶ Putar Musik";
+        musicButton2.innerHTML = "▶ Putar Musik";
+        musicStatus.innerHTML = "Musik dijeda 🎵";
+      }
+    }
+
+    async function toggleMusic() {
+      try {
+        if (musik.paused) {
+          await musik.play();
+          musik2.currentTime = musik.currentTime;
+          musik2.pause();
+          updateMusicUI(true);
+        } else {
+          musik.pause();
+          updateMusicUI(false);
+        }
+      } catch (error) {
+        alert(
+          "Musik belum bisa diputar. Pastikan file 'ssstik.io_1789892781438.mp3' berada di folder yang sama dengan file HTML."
+        );
+      }
+    }
+
+    function pesan() {
+      alert("Bulan Anjay Bauc ❤️ Ayo Ngopi Cantik 💕");
+      buatHati();
+    }
+
+    function buatHati() {
+      for (let i = 0; i < 12; i++) {
+        setTimeout(() => {
+          const heart = document.createElement("div");
+          heart.className = "heart-fall";
+          heart.innerHTML = "❤️";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.fontSize = (15 + Math.random() * 25) + "px";
+          heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+          document.body.appendChild(heart);
+
+          setTimeout(() => heart.remove(), 5500);
+        }, i * 120);
+      }
+    }
+
+    // Sinkronkan kontrol audio kedua dengan musik utama.
+    musik2.addEventListener("play", () => {
+      musik.currentTime = musik2.currentTime;
+      musik.play().catch(() => { });
+      musik2.pause();
+      updateMusicUI(true);
+    });
+
+    musik.addEventListener("play", () => updateMusicUI(true));
+    musik.addEventListener("pause", () => updateMusicUI(false));
+  </script>
+
+</body>
+
+</html>
